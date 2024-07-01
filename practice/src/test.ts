@@ -76,8 +76,124 @@ let matrix: number[][] = [
 ];
 console.log(matrix);
 
-// Q6. Declare an array colors containing strings "red", "green", and "blue". Iterate over the array and print each color.
-// Q7. Declare an array ages containing numbers 25, 30, and 35. Map over the array and double each age. Print the modified array.
-// Q8. Declare an array numbers containing numbers 1 through 10. Filter the array to only include even numbers. Print the filtered array.
-// Q9. Declare an array grades containing numbers 85, 90, and 95. Reduce the array to calculate the average grade. Print the average.
-// Q10. Declare an array names containing strings "Alice", "Bob", and "Charlie". Check if "Charlie" exists in the array and print the result.
+// reusable msg func
+const logMsg = (msg: any) => {
+  console.log(msg);
+};
+
+// Q6. Define a new type alias called ArtistDetails that includes the properties name, active, and albums. Then, create an object of this type. You have the option to use type alias
+
+type strOrNumArr = (string | number)[];
+
+interface ArtistDetails {
+  name?: string;
+  active: boolean;
+  albums: strOrNumArr;
+}
+
+const Baddo: ArtistDetails = {
+  active: true,
+  albums: ["Ikigai", "Eyan Meayweather", 999],
+};
+
+// Q6. Create a variable genre with literal types "Rock" | "Jazz" | "Pop". Assign a value to it and print it.
+
+let genre: "Rock" | "Jazz" | "pop";
+genre = "Rock";
+logMsg(genre);
+
+// Q7. Using a type alias for function signature, declare a function subtractNumbers that subtracts two numbers. Then, use this function to subtract 7 from 10 and print the result.
+
+type mathFunction = (a: number, b: number) => number;
+
+const subtract: mathFunction = (a, b) => {
+  return a - b;
+};
+
+logMsg(subtract(10, 7));
+
+// Q8. Modify the addAll function to return a string "Incomplete parameters" if the third parameter c is not provided.
+//coming from lesson 4
+const addAll = (a: number, b: number, c?: number): number | string => {
+  if (typeof c !== "undefined") {
+    return a + b + c;
+  }
+  return "Incomplete parameters";
+};
+
+// Q9. Create a new function multiplyAll that multiplies three numbers. The third parameter should have a default value of 1.
+
+const multiplyAll = (a: number, b: number, c: number = 1) => {
+  return a * b * c;
+};
+
+logMsg(multiplyAll(2, 3, 6));
+// Q10. Write a function calculateSum that takes a fixed parameter initial and any number of additional numbers. It should return the sum of initial and all the additional numbers.
+
+const calculateSum = (a: number, ...b: number[]) => {
+  return a + b.reduce((prev, curr) => prev + curr);
+};
+logMsg(calculateSum(2, 3, 4, 5, 6));
+
+// Q11. Create an interface BandMember with properties name, instrument, and yearsActive. Create an object of this type and a function introduceMember that takes a BandMember object and returns a string introducing the member.
+
+type bandMember = {
+  name: string;
+  instrument: string;
+  yearsActive: number;
+};
+
+const lead: bandMember = {
+  name: "Kunle",
+  instrument: "Sax",
+  yearsActive: 9,
+};
+
+const introduceMember = (lead: bandMember): string => {
+  return `Introducing ${lead.name}, the leader of the group`;
+};
+
+logMsg(introduceMember(lead));
+
+// Q12. Define a type alias ComplexObject that includes nested objects and arrays. Create an object of this type and print it.
+
+type complexObject = {
+  studentsProfile: {
+    name: string;
+    department: string;
+    yearSpent: number;
+    courseCodes: {
+      EngLish: string;
+      Math: string;
+    };
+  };
+  lecturersProfile: {
+    name: string;
+    department: string;
+    yearsActive: number[];
+  };
+};
+
+const classRep: complexObject = {
+  studentsProfile: {
+    name: "Owoblow",
+    department: "Mass Comm",
+    yearSpent: 8,
+    courseCodes: {
+      EngLish: "GNS 400",
+      Math: "MTH 401",
+    },
+  },
+  lecturersProfile: {
+    name: "Mr Chuks",
+    department: "Mass Comm",
+    yearsActive: [2000, 2001, 2006, 2008],
+  },
+};
+
+logMsg(classRep);
+logMsg(classRep.studentsProfile);
+logMsg(classRep.lecturersProfile);
+// Q14.
+
+// Q14.
