@@ -39,4 +39,13 @@ Object.keys(student).map((key) => {
 const logStudentKey = (student, key) => {
     console.log(`Student${key}: ${student[key]}`);
 };
-logStudentKey(student, "GPA");
+logStudentKey(student, "name");
+const monthlyIncome = {
+    salary: 200,
+    bonus: 100,
+    sidehustle: 250,
+};
+for (const revenue in monthlyIncome) {
+    console.log(`${revenue}: ${monthlyIncome[revenue]}`);
+    //   console.log(monthlyIncome[revenue]);
+}

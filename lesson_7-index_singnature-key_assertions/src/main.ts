@@ -75,4 +75,24 @@ const logStudentKey = (student: Student, key: keyof Student): void => {
   console.log(`Student${key}: ${student[key]}`);
 };
 
-logStudentKey(student, "GPA");
+logStudentKey(student, "name");
+
+///////////////////////////////////////////////
+// interface Incomes {
+//   [key: string]: number;
+// }
+
+type Streams = "salary" | "bonus" | "sidehustle";
+
+type Incomes = Record<Streams, number | string>;
+
+const monthlyIncome: Incomes = {
+  salary: 200,
+  bonus: 100,
+  sidehustle: 250,
+};
+
+for (const revenue in monthlyIncome) {
+  console.log(`${revenue}: ${monthlyIncome[revenue as keyof Incomes]}`);
+  //   console.log(monthlyIncome[revenue]);
+}
