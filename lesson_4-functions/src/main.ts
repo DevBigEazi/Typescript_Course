@@ -20,7 +20,7 @@ type userId = stringOrNumber;
 
 type postId = stringOrNumber;
 
-// Lietral types
+// Literal types
 let userName: "Isiaq";
 // userName = "Ade"; //error // differant from
 
